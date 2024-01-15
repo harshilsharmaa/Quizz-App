@@ -1,8 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setTimeOver } from "../../../redux/slices/quizSlice";
 
 const Timer = () => {
-  const [minutes, setMinutes] = useState(29);
+  const [minutes, setMinutes] = useState(29);   //29
   const [seconds, setSeconds] = useState(60);
+
+  const dispatch = useDispatch();
 
   const timerRef = useRef(null);
 
@@ -14,18 +18,23 @@ const Timer = () => {
     timerRef.current = timer;
   };
 
+  const stopTimer = ()=>{
+    dispatch(setTimeOver());
+    clearInterval(timerRef.current);
+  }
+
   useEffect(() => {
     if (seconds <= 0) {
       setMinutes((prev) => prev - 1);
       setSeconds(59);
     }
     if (minutes <= 0 && seconds <= 0) {
-      //   stopTimer();
+        stopTimer();
     }
   }, [seconds]);
 
   useEffect(() => {
-    // startTimer();
+    startTimer();
     return () => {
       clearInterval(timerRef.current);
     };

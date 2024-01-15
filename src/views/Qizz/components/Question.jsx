@@ -38,7 +38,7 @@ const Question = ({
           }}
         />
       </div>
-      <h5>Options:</h5>
+      <h5 className="mt-3">Options:</h5>
       <div className="w-[80%] ml-5 mt-4 grid grid-cols-2 gap-x-6 gap-y-5">
             {question?.allOptions?.length > 0 &&
               question?.allOptions.map((item, index) => {
@@ -46,8 +46,8 @@ const Question = ({
                   <p
                     onClick={() => handleOptionClick(item)}
                     className={`${
-                      selectedOption == item && "bg-blue-100  hover:bg-blue-100"
-                    } font-semibold border rounded-lg px-4 py-4 cursor-pointer hover:bg-gray-100`}
+                      selectedOption == item ? "bg-blue-100  hover:bg-blue-100" : "hover:bg-gray-100"
+                    } font-semibold border rounded-lg px-4 py-4 cursor-pointer`}
                     key={item + index}
                     dangerouslySetInnerHTML={{
                       __html: `${String.fromCharCode(index + 65)} : ${item}`,

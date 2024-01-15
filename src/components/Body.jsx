@@ -1,7 +1,7 @@
 import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import StartPage from '../views/StartPage/StartPage'
-import Qizz from '../views/Qizz/Qizz'
+import Qizz from '../views/Qizz/Quiz'
 import ProtectedRoute from './ProtectedRoute'
 import Result from '../views/Result/Result'
 
@@ -13,7 +13,7 @@ const Body = () => {
             element: <StartPage/>
         },
         {
-            path: "/quizz",
+            path: "/quiz",
             element: <ProtectedRoute><Qizz/></ProtectedRoute>
         },
         {
@@ -22,7 +22,7 @@ const Body = () => {
         }
     ])
 
-  return <RouterProvider router={router}></RouterProvider>
+  return <RouterProvider className="bg-gray-50" router={router}></RouterProvider>
 }
 
 export default Body

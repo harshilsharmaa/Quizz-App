@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.headline {
+  font-family: "Luckiest Guy", cursive;
+}
+
+@keyframes glowAnimation {
+  0% {
+    background-color: rgba(240, 240, 240, 0.813);
+  }
+  50% {
+    background-color: rgba(228, 228, 228, 0.749);
+  }
+  100% {
+    background-color: rgba(234, 234, 234, 0.813);
+  }
+}
+.glow {
+  animation: glowAnimation 1.5s infinite;
+}
